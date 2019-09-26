@@ -6,7 +6,7 @@
 #include "mainscene.h"
 #include <stdlib.h>
 #include <time.h>
-
+//Hello this is comment
 int main(int argc, char** argv)
 {
     srand(time(0));
