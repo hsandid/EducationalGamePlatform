@@ -1,12 +1,13 @@
-
-#include <iostream>
-using namespace std;
+#include <QApplication>
 
 
 
-int main()
+int main(int argc, char **argv)
 {
+    QApplication app(argc,argv);
 
+//    mainWidget *myWidget = new mainWidget();
+//    myWidget->show();
 
-    return 0;
+    return app.exec();
 }
