@@ -3,6 +3,7 @@ QT += \
     gui
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+    registerWidget.cpp
 
 
