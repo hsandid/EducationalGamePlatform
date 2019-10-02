@@ -1,0 +1,5 @@
+QT += \
+    widgets \
+    gui
+
+
