@@ -8,6 +8,7 @@ int main(int argc, char **argv)
 
 //    mainWidget *myWidget = new mainWidget();
 //    myWidget->show();
+//    testComment
 
     return app.exec();
 }
