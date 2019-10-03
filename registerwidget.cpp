@@ -6,7 +6,7 @@ registerWidget::registerWidget(QWidget *parent) :
 {
     // Here shall be designed the register user screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
-
+    // This is Hadi's Part
 
     test_screen = new QLabel("This is the Login Page");
     button = new QPushButton("Confirm Registration");

@@ -6,6 +6,7 @@ menuWidget::menuWidget(QWidget *parent) :
 {
     // Here shall be designed the main menu screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
+    // This is Hadi's part
 
     test_screen = new QLabel("This is the Menu page");
     button = new QPushButton("Logout");
