@@ -1,0 +1,34 @@
+#ifndef REGISTERWIDGET_H
+#define REGISTERWIDGET_H
+
+#include <QWidget>
+<<<<<<< HEAD
+=======
+#include <QtWidgets>
+>>>>>>> da26e20043e42092c9bd6e125ae062c240f0d9da
+
+class registerWidget : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit registerWidget(QWidget *parent = 0);
+
+<<<<<<< HEAD
+signals:
+
+public slots:
+=======
+    QLabel *test_screen;
+    QPushButton *button;
+    QVBoxLayout *test_layout;
+
+signals:
+
+public slots:
+    void GoToLoginPage();
+
+>>>>>>> da26e20043e42092c9bd6e125ae062c240f0d9da
+
+};
+
+#endif // REGISTERWIDGET_H
