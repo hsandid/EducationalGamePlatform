@@ -4,6 +4,9 @@ QT += \
 
 SOURCES += \
     main.cpp \
-    registerWidget.cpp
+    registerwidget.cpp
+
+HEADERS += \
+    registerwidget.h
 
 
