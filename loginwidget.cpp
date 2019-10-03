@@ -7,6 +7,7 @@ loginWidget::loginWidget(QWidget *parent) :
 {
     // Here shall be designed the login screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
+    // This is Mehiedinne's part
 
     test_screen = new QLabel("This is the Login Page");
     button = new QPushButton("Login");
