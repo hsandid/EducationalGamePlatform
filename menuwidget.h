@@ -1,14 +1,14 @@
-#ifndef REGISTERWIDGET_H
-#define REGISTERWIDGET_H
+#ifndef MENUWIDGET_H
+#define MENUWIDGET_H
 
 #include <QWidget>
 #include <QtWidgets>
 
-class registerWidget : public QWidget
+class menuWidget : public QWidget
 {
     Q_OBJECT
 public:
-    explicit registerWidget(QWidget *parent = 0);
+    explicit menuWidget(QWidget *parent = 0);
 
     QLabel *test_screen;
     QPushButton *button;
@@ -22,4 +22,4 @@ public slots:
 
 };
 
-#endif // REGISTERWIDGET_H
+#endif // MENUWIDGET_H

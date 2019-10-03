@@ -1,9 +1,14 @@
 #include "registerwidget.h"
+<<<<<<< HEAD
+=======
 #include "loginwidget.h"
+>>>>>>> da26e20043e42092c9bd6e125ae062c240f0d9da
 
 registerWidget::registerWidget(QWidget *parent) :
     QWidget(parent)
 {
+<<<<<<< HEAD
+=======
     // Here shall be designed the register user screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
 
@@ -28,4 +33,5 @@ void registerWidget::GoToLoginPage()
 loginWidget *loginInit = new loginWidget();
 loginInit->show();
 this->close();
+>>>>>>> da26e20043e42092c9bd6e125ae062c240f0d9da
 }

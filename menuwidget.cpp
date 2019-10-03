@@ -1,16 +1,14 @@
-#include "registerwidget.h"
+#include "menuwidget.h"
 #include "loginwidget.h"
 
-registerWidget::registerWidget(QWidget *parent) :
+menuWidget::menuWidget(QWidget *parent) :
     QWidget(parent)
 {
-    // Here shall be designed the register user screen
+    // Here shall be designed the main menu screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
 
-
-    test_screen = new QLabel("This is the Login Page");
-    button = new QPushButton("Confirm Registration");
-
+    test_screen = new QLabel("This is the Menu page");
+    button = new QPushButton("Logout");
     test_layout = new QVBoxLayout();
 
     test_layout->addWidget(test_screen);
@@ -23,7 +21,7 @@ registerWidget::registerWidget(QWidget *parent) :
 }
 
 
-void registerWidget::GoToLoginPage()
+void menuWidget::GoToLoginPage()
 {
 loginWidget *loginInit = new loginWidget();
 loginInit->show();
