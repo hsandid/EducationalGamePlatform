@@ -12,7 +12,7 @@ public:
 
     QLabel *test_screen;
     QPushButton *button;
-    QVBoxLayout *test_layout;
+    QGridLayout *test_layout;
 
 signals:
 

@@ -11,10 +11,13 @@ public:
     explicit loginWidget(QWidget *parent = 0);
 
     QLabel *test_screen;
-    QPushButton *button;
-    QPushButton *button_1;
-    QVBoxLayout *test_layout;
-
+    QPushButton *LogINbutton;
+    QPushButton *RegisterButton;
+    QGridLayout  *test_layout;
+    QLabel * UserName;
+    QLabel * PassWord;
+    QLineEdit * UserNameLine;
+    QLineEdit * PassWordLine;
 signals:
 
 public slots:

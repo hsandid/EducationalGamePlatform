@@ -9,7 +9,7 @@ menuWidget::menuWidget(QWidget *parent) :
 
     test_screen = new QLabel("This is the Menu page");
     button = new QPushButton("Logout");
-    test_layout = new QVBoxLayout();
+    test_layout = new QGridLayout;
 
     test_layout->addWidget(test_screen);
     test_layout->addWidget(button);
