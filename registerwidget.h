@@ -10,34 +10,21 @@ class registerWidget : public QWidget
 public:
     explicit registerWidget(QWidget *parent = 0);
 
-    QGridLayout *grid_01;
-    QVBoxLayout *vbox_radio;
-
-    QLabel *welcome_text;
-    QLabel *fname_text;
-    QLabel *lname_text;
-    QLabel *username_text;
-    QLabel *gender_text;
-    QLabel *date_of_birth_text;
-    QLabel *password_text;
-    QLabel *password_confirm_text;
-    QLabel *profile_picture_text;
-    QLabel *error_message_text;
-
+    QLabel *welcome;
+    QLabel *fname;
     QLineEdit *fname_edit;
+    QLabel *lname;
     QLineEdit *lname_edit;
+    QLabel *username;
     QLineEdit *username_edit;
+    QLabel *password;
     QLineEdit *password_edit;
-    QLineEdit *password_confirm_edit;
+    QLabel *passwordconf;
+    QLineEdit *passwordconf_edit;
 
-    QDateEdit *date_of_birth_date_edit;
+    QGridLayout *register_layout;
 
-    QRadioButton *male_radio_button;
-    QRadioButton *female_radio_button;
 
-    QPushButton *select_picture_button;
-    QPushButton *cancel_button;
-    QPushButton *confirm_button;
 
 
 

@@ -26,5 +26,5 @@ void menuWidget::GoToLoginPage()
 {
 loginWidget *loginInit = new loginWidget();
 loginInit->show();
-this->close();
+this->hide();
 }
