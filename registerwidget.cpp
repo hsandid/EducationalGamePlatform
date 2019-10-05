@@ -110,6 +110,7 @@ registerWidget::registerWidget(QWidget *parent) :
 
 
     this->setLayout(register_layout);
+    this->setWindowTitle("Registration Page");
 
     QObject::connect(add_pppicture,SIGNAL(clicked()),this,SLOT(selectPicture()));
 

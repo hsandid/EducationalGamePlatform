@@ -10,14 +10,11 @@ class menuWidget : public QWidget
 public:
     explicit menuWidget(QWidget *parent = 0);
 
-    QLabel *test_screen;
-    QPushButton *button;
-    QVBoxLayout *test_layout;
 
 signals:
 
 public slots:
-    void GoToLoginPage();
+
 
 
 };

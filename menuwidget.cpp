@@ -6,25 +6,10 @@ menuWidget::menuWidget(QWidget *parent) :
 {
     // Here shall be designed the main menu screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
-    // This is Hadi's part
-
-    test_screen = new QLabel("This is the Menu page");
-    button = new QPushButton("Logout");
-    test_layout = new QVBoxLayout();
-
-    test_layout->addWidget(test_screen);
-    test_layout->addWidget(button);
+    // Both Hadi and Mehiedinne worked on this part
 
 
-    this->setLayout(test_layout);
-
-    QObject::connect(button,SIGNAL(clicked()),this,SLOT(GoToLoginPage()));
 }
 
 
-void menuWidget::GoToLoginPage()
-{
-loginWidget *loginInit = new loginWidget();
-loginInit->show();
-this->hide();
-}
+
