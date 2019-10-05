@@ -13,4 +13,7 @@ HEADERS += \
     menuwidget.h \
     loginwidget.h
 
+RESOURCES += \
+    myRessources.qrc
+
 

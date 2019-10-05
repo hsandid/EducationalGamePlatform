@@ -21,8 +21,28 @@ public:
     QLineEdit *password_edit;
     QLabel *passwordconf;
     QLineEdit *passwordconf_edit;
+    QLabel *date_text;
+    QDateEdit *date_picker;
+
+    QLabel *gender_text;
+    QVBoxLayout *gender_radio;
+    QGroupBox *gender_container;
+    QRadioButton *male_button;
+    QRadioButton *female_button;
+
+    QLabel *pppicture_text;
+    QPushButton *add_pppicture;
+    QLabel *pppicture;
+
+    QPushButton *cancel;
+    QPushButton *confirm;
+
+    QString *filename;
+    QFile *tempfile;
 
     QGridLayout *register_layout;
+
+
 
 
 
@@ -31,7 +51,7 @@ public:
 signals:
 
 public slots:
-
+void selectPicture();
 
 
 };
