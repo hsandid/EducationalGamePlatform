@@ -38,9 +38,40 @@ loginWidget::loginWidget(QWidget *parent) :
 
 void loginWidget::GoToMainPage()
 {
-menuWidget *menuInit = new menuWidget();
-menuInit->show();
-this->close();
+        QFile file;
+        QString fileContents;
+        file.setFileName("users.json");
+        file.open(QIODevice::ReadOnly | QIODevice::Text);
+        fileContents = file.readAll();
+        file.close();
+
+        QJsonDocument jsonDoc= QJsonDocument::fromJson(fileContents.toUtf8());
+        QJsonObject obj = jsonDoc.object();
+        QJsonArray myArr = obj["Users"].toArray();
+
+
+        QString username;
+        QString password;
+
+         QJsonObject objx;
+
+
+        foreach (const QJsonValue & value, myArr)
+        {
+             objx = value.toObject();
+//            myString.append(obj["first name"].toString()+" "+obj["last      name"].toString()+" "+obj["year of birth"].toString()+"\n");
+            username = objx["username"].toString();
+            password = objx["password"].toString();
+
+            if (UserNameLine->text() == username && PassWordLine->text() == password)
+            {
+                menuWidget *menuInit = new menuWidget();
+                menuInit->show();
+                this->close();
+            }
+
+        }
+
 }
 
 void loginWidget::GoToRegisterPage()
