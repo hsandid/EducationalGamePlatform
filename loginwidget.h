@@ -18,11 +18,13 @@ public:
     QLabel * PassWord;
     QLineEdit * UserNameLine;
     QLineEdit * PassWordLine;
+    QPushButton * PlayAsGuestButton;
 signals:
 
 public slots:
     void GoToRegisterPage();
     void GoToMainPage();
+    void GoToMainAsGuest();
 
 };
 
