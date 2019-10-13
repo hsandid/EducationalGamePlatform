@@ -9,7 +9,7 @@ class registerWidget : public QWidget
     Q_OBJECT
 public:
     explicit registerWidget(QWidget *parent = 0);
-
+    bool isSelected;
     QLabel *welcome;
     QLabel *fname;
     QLineEdit *fname_edit;
@@ -23,6 +23,7 @@ public:
     QLineEdit *passwordconf_edit;
     QLabel *date_text;
     QDateEdit *date_picker;
+    QLabel *error_message;
 
     QLabel *gender_text;
     QVBoxLayout *gender_radio;
@@ -52,6 +53,9 @@ signals:
 
 public slots:
 void selectPicture();
+void confirmRegistration();
+void checkConditions();
+bool passCheck();
 
 
 };

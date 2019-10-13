@@ -30,14 +30,16 @@ void loginWidget::GoToMainPage()
 {
 menuWidget *menuInit = new menuWidget();
 menuInit->show();
-this->hide();
+this->close();
+delete this;
 }
 
 void loginWidget::GoToRegisterPage()
 {
 registerWidget *registerInit = new registerWidget();
 registerInit->show();
-this->hide();
+this->close();
+delete this;
 }
 
 

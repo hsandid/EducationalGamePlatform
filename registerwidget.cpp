@@ -43,9 +43,11 @@ registerWidget::registerWidget(QWidget *parent) :
 
     password = new QLabel("Password :");
     password_edit = new QLineEdit();
+    password_edit->setEchoMode(QLineEdit::Password);
 
     passwordconf = new QLabel("Confirm Password :");
     passwordconf_edit = new QLineEdit();
+    passwordconf_edit->setEchoMode(QLineEdit::Password);
 
     date_text = new QLabel("Date of Birth :");
     date_picker = new QDateEdit();
@@ -73,8 +75,7 @@ registerWidget::registerWidget(QWidget *parent) :
     cancel = new QPushButton("Cancel");
     confirm = new QPushButton("Confirm");
 
-
-
+    error_message = new QLabel("");
 
 
 
@@ -84,6 +85,7 @@ registerWidget::registerWidget(QWidget *parent) :
     //Adding spacing items over all the first and last column
     register_layout->addItem(new QSpacerItem(10,10),0,0,5,1);
     register_layout->addItem(new QSpacerItem(10,10),0,5,4,1);
+    register_layout->addItem(new QSpacerItem(90,90),10,1,1,3);
 
     register_layout->addWidget(welcome,0,1,1,3,Qt::AlignCenter);
     register_layout->addWidget(fname,1,1);
@@ -105,14 +107,20 @@ registerWidget::registerWidget(QWidget *parent) :
     register_layout->addWidget(pppicture_text,8,1);
     register_layout->addWidget(pppicture,8,2);
     register_layout->addWidget(add_pppicture,8,3);
-    register_layout->addWidget(cancel,9,1);
-    register_layout->addWidget(confirm,9,2);
+    register_layout->addWidget(error_message,9,1,1,3,Qt::AlignCenter);
+    register_layout->addWidget(cancel,11,2);
+    register_layout->addWidget(confirm,11,3);
 
+
+    isSelected = false;
 
     this->setLayout(register_layout);
     this->setWindowTitle("Registration Page");
 
+
+
     QObject::connect(add_pppicture,SIGNAL(clicked()),this,SLOT(selectPicture()));
+    QObject::connect(confirm,SIGNAL(clicked()),this,SLOT(checkConditions()));
 
 
 
@@ -122,8 +130,130 @@ void registerWidget::selectPicture()
 {
 
     filename = new QString(QFileDialog::getOpenFileName(this,tr("Open Image"), "/home",tr("Image Files (*png)")));
-    pppicture->setPixmap(QPixmap(filename->toUtf8()).scaledToHeight(100).scaledToWidth(100));
+    if (filename->toUtf8()!=NULL)
+    {
+        pppicture->setPixmap(QPixmap(filename->toUtf8()).scaledToHeight(100).scaledToWidth(100));
+        isSelected = true;
+    }
+    else
+    {
+        filename = new QString(":images/symbol.png");
+        pppicture->setPixmap(QPixmap(filename->toUtf8()).scaledToHeight(100).scaledToWidth(100));
+        isSelected = false;
+    }
+
 }
 
+bool registerWidget::passCheck()
+{
+    if (passwordconf_edit->text().toLower() == passwordconf_edit->text())
+    {
 
+        return false;
+    }
+    else if (passwordconf_edit->text().toUpper() == passwordconf_edit->text())
+    {
+
+        return false;
+    }
+    else if (passwordconf_edit->text().length()<8)
+    {
+
+        return false;
+    }
+
+
+    QString passTemp = passwordconf_edit->text();
+
+
+        if (passTemp.contains('0',Qt::CaseInsensitive) || passTemp.contains('1',Qt::CaseInsensitive)
+                || passTemp.contains('2',Qt::CaseInsensitive) || passTemp.contains('3',Qt::CaseInsensitive)
+                || passTemp.contains('4',Qt::CaseInsensitive) || passTemp.contains('5',Qt::CaseInsensitive)
+                || passTemp.contains('6',Qt::CaseInsensitive) || passTemp.contains('7',Qt::CaseInsensitive)
+                || passTemp.contains('8',Qt::CaseInsensitive) || passTemp.contains('9',Qt::CaseInsensitive))
+        {
+            return true;
+        }
+        else
+        {
+
+        return false;
+     }
+}
+
+void registerWidget::checkConditions()
+{
+
+if (username_edit->text().replace(" ","").isEmpty() || lname_edit->text().replace(" ","").isEmpty() || fname_edit->text().replace(" ","").isEmpty() || password_edit->text().replace(" ","").isEmpty() || passwordconf_edit->text().replace(" ","").isEmpty())
+{
+  error_message->setText("Please fill all sections");
+}
+else if (password_edit->text()!=passwordconf_edit->text())
+{
+    error_message->setText("Passwords do not match");
+}
+else if (!passCheck())
+{
+    error_message->setText("Password should consist of \n at least 9 characters and contain at \nleast one number, upper and lower\n case letters.");
+}
+else
+{
+    confirmRegistration();
+}
+
+}
+
+void registerWidget::confirmRegistration()
+{
+    QFile file("userdata.json");
+    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    QJsonParseError JsonParseError;
+    QJsonDocument JsonDocument = QJsonDocument::fromJson(file.readAll(), &JsonParseError);
+    file.close();
+
+    QJsonObject RootObject = JsonDocument.object();
+    QJsonObject myuser;
+    myuser.insert(QString("fname"),fname_edit->text());
+    myuser.insert(QString("lname"),lname_edit->text());
+    myuser.insert(QString("password"),password_edit->text());
+    myuser.insert(QString("date_of_birth"),date_picker->text());
+    if(male_button->isChecked())
+    {
+        myuser.insert(QString("gender"),QString("male"));
+    }
+    else if(female_button->isChecked())
+    {
+        myuser.insert(QString("gender"),QString("female"));
+    }
+    if (isSelected==true)
+    {
+        myuser.insert(QString("pp_present"),QString("yes"));
+        QString homepath = QDir::homePath();
+        if(!QDir(homepath+"/Pictures/GameSystem").exists())
+        {
+        QDir().mkdir(homepath+"/Pictures/GameSystem");
+        }
+        QFile::copy(filename->toUtf8(), QString(homepath+"/Pictures/GameSystem/"+username_edit->text().replace(" ","")+".png"));
+
+    }
+    else
+    {
+        myuser.insert(QString("pp_present"),QString("no"));
+    }
+
+    RootObject.insert(username_edit->text(),myuser);
+
+    JsonDocument.setObject(RootObject);
+
+
+    file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+    file.write(JsonDocument.toJson());
+    file.close();
+
+    loginWidget *login = new loginWidget();
+    login->show();
+    this->close();
+    delete this;
+
+}
 
