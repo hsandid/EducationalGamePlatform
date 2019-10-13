@@ -17,6 +17,16 @@ public:
     QWidget * play;
     QWidget * profile;
     QTabWidget *tabWidget;
+    QLabel * Welcome;
+    QLabel * Game1Name;
+    QLabel * Game2Name;
+    QPushButton * Play1;
+    QPushButton * Play2;
+    QPixmap * image1;
+    QPixmap * image2;
+    QPushButton * Load1;
+    QPushButton * Load2;
+
 
 signals:
 

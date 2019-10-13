@@ -1,5 +1,7 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/">
         <file>images/symbol.png</file>
+        <file>images/S&amp;L.PNG</file>
+        <file>images/Cabo.PNG</file>
     </qresource>
 </RCC>
