@@ -38,6 +38,12 @@ loginWidget::loginWidget(QWidget *parent) :
 
 void loginWidget::GoToMainPage()
 {
+<<<<<<< HEAD
+menuWidget *menuInit = new menuWidget();
+menuInit->show();
+this->close();
+delete this;
+=======
         QFile file;
         QString fileContents;
         file.setFileName("users.json");
@@ -72,6 +78,7 @@ void loginWidget::GoToMainPage()
 
         }
 
+>>>>>>> origin/mehio
 }
 
 void loginWidget::GoToRegisterPage()
