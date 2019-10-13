@@ -7,23 +7,23 @@ menuWidget::menuWidget(QWidget *parent) :
     // Here shall be designed the main menu screen
     // ALL CODE HERE SHALL BE CONSIDERED TEMPLATE
 
-    test_screen = new QLabel("This is the Menu page");
-    button = new QPushButton("Logout");
+
     test_layout = new QGridLayout;
+    play_layout = new QGridLayout;
+    profile_layout = new QGridLayout;
+    play = new QWidget();
+    profile = new QWidget();
+    play->setLayout(play_layout);
+    profile->setLayout(profile_layout);
 
-    test_layout->addWidget(test_screen);
-    test_layout->addWidget(button);
+    tabWidget = new QTabWidget;
+    tabWidget->addTab(play, tr("Play"));
+    tabWidget->addTab(profile, tr("My Profile"));
 
-
+    test_layout->addWidget(tabWidget);
     this->setLayout(test_layout);
 
-    QObject::connect(button,SIGNAL(clicked()),this,SLOT(GoToLoginPage()));
+
 }
 
 
-void menuWidget::GoToLoginPage()
-{
-loginWidget *loginInit = new loginWidget();
-loginInit->show();
-this->close();
-}

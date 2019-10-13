@@ -206,6 +206,10 @@ else if (!passCheck())
 {
     error_message->setText("Password should consist of \n at least 9 characters and contain at \nleast one number, upper and lower\n case letters.");
 }
+else if (username_edit->text().replace(" ","").toLower()=="guest" )
+{
+    error_message->setText("'guest' cannot be set as username");
+}
 else
 {
     confirmRegistration();
