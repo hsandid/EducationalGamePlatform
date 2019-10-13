@@ -18,14 +18,21 @@ public:
     QLabel * PassWord;
     QLineEdit * UserNameLine;
     QLineEdit * PassWordLine;
+<<<<<<< HEAD
     QLabel * ErrorMessage;
-	QPushButton * PlayAsGuestButton;
+=======
+    QPushButton * PlayAsGuestButton;
+>>>>>>> mehio
 signals:
 
 public slots:
     void GoToRegisterPage();
+<<<<<<< HEAD
     void checkLogin();
+=======
+    void GoToMainPage();
     void GoToMainAsGuest();
+>>>>>>> mehio
 
 };
 
