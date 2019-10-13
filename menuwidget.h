@@ -19,6 +19,16 @@ public:
     QWidget * profile;
     QWidget * history;
     QTabWidget *tabWidget;
+    QLabel * Welcome;
+    QLabel * Game1Name;
+    QLabel * Game2Name;
+    QPushButton * Play1;
+    QPushButton * Play2;
+    QLabel * image1;
+    QLabel * image2;
+    QPushButton * Load1;
+    QPushButton * Load2;
+
 
     //Everything related to the profile section
 

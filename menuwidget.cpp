@@ -19,6 +19,8 @@ menuWidget::menuWidget(QWidget *parent) :
 
 
 
+
+
     usernameDisplay = new QLabel("username : ");
     ppDisplay = new QLabel();
     fnameDisplay = new QLabel("First Name : ");
@@ -27,13 +29,34 @@ menuWidget::menuWidget(QWidget *parent) :
     genderDisplay = new QLabel("Gender : ");
 
 
+    Welcome = new QLabel("Welcome Back");
+    Game1Name = new QLabel("Snakes'n'Ladders");
+    Game2Name = new QLabel("Cabo");
+    Play1 = new QPushButton("Play");
+    Play2 = new QPushButton("Play") ;
+    Load1 = new QPushButton("Load");
+    Load2 = new QPushButton("Load");
+    image1 = new QLabel();
+    image1->setPixmap(QPixmap(":images/snl.png").scaledToHeight(200).scaledToWidth(200));
+    image2 = new QLabel();
+    image2->setPixmap(QPixmap(":images/cabo.png").scaledToHeight(200).scaledToWidth(200));
+    play_layout->addWidget(Welcome,0,0,1,2,Qt::AlignCenter);
+    play_layout->addWidget(image1,1,0,1,1);
+    play_layout->addWidget(image2,1,1,1,1);
+   play_layout->addWidget(Game1Name,2,0,Qt::AlignCenter);
+   play_layout->addWidget(Game2Name,2,1,Qt::AlignCenter);
+   play_layout->addWidget(Play1,3,0);
+   play_layout->addWidget(Play2,3,1);
+    play_layout->addWidget(Load1,4,0);
+    play_layout->addWidget(Load2,4,1);
 
 
     play->setLayout(play_layout);
 
 
-    profile_layout->addWidget(usernameDisplay,0,0);
-    profile_layout->addWidget(ppDisplay,1,0);
+
+    profile_layout->addWidget(ppDisplay,0,0);
+    profile_layout->addWidget(usernameDisplay,1,0);
     profile_layout->addWidget(fnameDisplay,2,0);
     profile_layout->addWidget(lnameDisplay,3,0);
     profile_layout->addWidget(dobDisplay,4,0);
@@ -54,7 +77,7 @@ menuWidget::menuWidget(QWidget *parent) :
     test_layout->addWidget(tabWidget);
     this->setLayout(test_layout);
     this->setWindowTitle("Main Menu");
-
+    this->setFixedSize(QSize(500, 500));
 
 
 
@@ -80,6 +103,10 @@ void menuWidget::readFromJsonProfile()
     if (userName=="guest")
     {
     tabWidget->setTabEnabled(1,false);
+    tabWidget->setTabEnabled(2,false);
+    Load1->setEnabled(false);
+    Load2->setEnabled(false);
+
     }
     else
     {

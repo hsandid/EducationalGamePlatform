@@ -34,6 +34,7 @@ loginWidget::loginWidget(QWidget *parent) :
 
     this->setLayout(test_layout);
     this->setWindowTitle("Login Page");
+    this->setFixedSize(QSize(400, 200));
 
     QObject::connect(LogINbutton,SIGNAL(clicked()),this,SLOT(checkLogin()));
     QObject::connect(RegisterButton,SIGNAL(clicked()),this,SLOT(GoToRegisterPage()));

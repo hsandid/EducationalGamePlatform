@@ -54,7 +54,7 @@ registerWidget::registerWidget(QWidget *parent) :
     date_picker->setMinimumDate(QDate(1900,1,1));
     date_picker->setMaximumDate(QDate(2021,1,1));
     date_picker->setDisplayFormat(QString("yyyy-MM-dd"));
-    date_picker->setDate(QDate(2019,1,1));
+    date_picker->setDate(QDate(2000,1,1));
 
     gender_container = new QGroupBox();
     gender_radio = new QVBoxLayout();
@@ -85,7 +85,7 @@ registerWidget::registerWidget(QWidget *parent) :
     //Adding spacing items over all the first and last column
     register_layout->addItem(new QSpacerItem(10,10),0,0,5,1);
     register_layout->addItem(new QSpacerItem(10,10),0,5,4,1);
-    register_layout->addItem(new QSpacerItem(90,90),10,1,1,3);
+    register_layout->addItem(new QSpacerItem(30,30),10,1,1,3);
 
     register_layout->addWidget(welcome,0,1,1,3,Qt::AlignCenter);
     register_layout->addWidget(fname,1,1);
@@ -116,7 +116,7 @@ registerWidget::registerWidget(QWidget *parent) :
 
     this->setLayout(register_layout);
     this->setWindowTitle("Registration Page");
-
+    this->setFixedSize(QSize(500, 550));
 
 
     QObject::connect(add_pppicture,SIGNAL(clicked()),this,SLOT(selectPicture()));
