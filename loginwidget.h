@@ -18,11 +18,12 @@ public:
     QLabel * PassWord;
     QLineEdit * UserNameLine;
     QLineEdit * PassWordLine;
+    QLabel * ErrorMessage;
 signals:
 
 public slots:
     void GoToRegisterPage();
-    void GoToMainPage();
+    void checkLogin();
 
 };
 
