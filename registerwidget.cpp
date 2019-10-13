@@ -52,7 +52,7 @@ registerWidget::registerWidget(QWidget *parent) :
     date_text = new QLabel("Date of Birth :");
     date_picker = new QDateEdit();
     date_picker->setMinimumDate(QDate(1900,1,1));
-    date_picker->setMaximumDate(QDate(2021,1,1));
+    date_picker->setMaximumDate(QDate(2021,1,1));ss
     date_picker->setDisplayFormat(QString("yyyy-MM-dd"));
     date_picker->setDate(QDate(2019,1,1));
 
