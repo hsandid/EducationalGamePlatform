@@ -16,6 +16,7 @@ loginWidget::loginWidget(QWidget *parent) :
     UserNameLine = new QLineEdit();
     PassWord = new QLabel("Password");
     PassWordLine= new QLineEdit();
+    PassWordLine->setEchoMode(QLineEdit::Password);
     ErrorMessage = new QLabel("");
 	 PlayAsGuestButton = new QPushButton("Play As Guest");
     test_layout = new QGridLayout ();
@@ -32,6 +33,7 @@ loginWidget::loginWidget(QWidget *parent) :
 
 
     this->setLayout(test_layout);
+    this->setWindowTitle("Login Page");
 
     QObject::connect(LogINbutton,SIGNAL(clicked()),this,SLOT(checkLogin()));
     QObject::connect(RegisterButton,SIGNAL(clicked()),this,SLOT(GoToRegisterPage()));
@@ -53,7 +55,7 @@ void loginWidget::checkLogin()
         QJsonObject obj = jsonDoc.object();
         
 
-        if(obj.contains(UserNameLine->text().replace(" ","")))
+        if(obj.contains(UserNameLine->text().replace(" ","").toLower()))
         {
             QJsonObject myUser = obj[UserNameLine->text().replace(" ","")].toObject();
         if (myUser["password"].toString()==PassWordLine->text())

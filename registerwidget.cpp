@@ -140,6 +140,7 @@ void registerWidget::selectPicture()
 {
 
     filename = new QString(QFileDialog::getOpenFileName(this,tr("Open Image"), "/home",tr("Image Files (*png)")));
+
     if (filename->toUtf8()!=NULL)
     {
         pppicture->setPixmap(QPixmap(filename->toUtf8()).scaledToHeight(100).scaledToWidth(100));
@@ -224,50 +225,61 @@ void registerWidget::confirmRegistration()
     QJsonParseError JsonParseError;
     QJsonDocument JsonDocument = QJsonDocument::fromJson(file.readAll(), &JsonParseError);
     file.close();
-
     QJsonObject RootObject = JsonDocument.object();
-    QJsonObject myuser;
-    myuser.insert(QString("fname"),fname_edit->text());
-    myuser.insert(QString("lname"),lname_edit->text());
-    myuser.insert(QString("password"),password_edit->text());
-    myuser.insert(QString("date_of_birth"),date_picker->text());
-    if(male_button->isChecked())
-    {
-        myuser.insert(QString("gender"),QString("male"));
-    }
-    else if(female_button->isChecked())
-    {
-        myuser.insert(QString("gender"),QString("female"));
-    }
-    if (isSelected==true)
-    {
-        myuser.insert(QString("pp_present"),QString("yes"));
-        QString homepath = QDir::homePath();
-        if(!QDir(homepath+"/Pictures/GameSystem").exists())
-        {
-        QDir().mkdir(homepath+"/Pictures/GameSystem");
-        }
-        QFile::copy(filename->toUtf8(), QString(homepath+"/Pictures/GameSystem/"+username_edit->text().replace(" ","")+".png"));
 
+    if( !RootObject.contains(username_edit->text().toLower()))
+    {
+
+        QJsonObject myuser;
+        myuser.insert(QString("fname"),fname_edit->text());
+        myuser.insert(QString("lname"),lname_edit->text());
+        myuser.insert(QString("password"),password_edit->text());
+        myuser.insert(QString("date_of_birth"),date_picker->text());
+        if(male_button->isChecked())
+        {
+            myuser.insert(QString("gender"),QString("male"));
+        }
+        else if(female_button->isChecked())
+        {
+            myuser.insert(QString("gender"),QString("female"));
+        }
+        if (isSelected==true)
+        {
+            myuser.insert(QString("pp_present"),QString("yes"));
+
+            QString homepath = QDir::homePath();
+
+            if(!QDir(homepath+"/Pictures/GameSystem").exists())
+            {
+            QDir().mkdir(homepath+"/Pictures/GameSystem");
+            }
+            QFile::copy(filename->toUtf8(), QString(homepath+"/Pictures/GameSystem/"+username_edit->text().replace(" ","").toLower()+".png"));
+
+        }
+        else
+        {
+            myuser.insert(QString("pp_present"),QString("no"));
+        }
+
+        RootObject.insert(username_edit->text().toLower(),myuser);
+
+        JsonDocument.setObject(RootObject);
+
+
+        file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
+        file.write(JsonDocument.toJson());
+        file.close();
+
+        loginWidget *login = new loginWidget();
+        login->show();
+        this->close();
+        delete this;
     }
     else
     {
-        myuser.insert(QString("pp_present"),QString("no"));
+        error_message->setText("Username already in use");
     }
 
-    RootObject.insert(username_edit->text(),myuser);
-
-    JsonDocument.setObject(RootObject);
-
-
-    file.open(QFile::WriteOnly | QFile::Text | QFile::Truncate);
-    file.write(JsonDocument.toJson());
-    file.close();
-
-    loginWidget *login = new loginWidget();
-    login->show();
-    this->close();
-    delete this;
 
 }
 

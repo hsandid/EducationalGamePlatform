@@ -14,13 +14,26 @@ public:
     QGridLayout *test_layout;
     QGridLayout *play_layout;
     QGridLayout *profile_layout;
+    QGridLayout *history_layout;
     QWidget * play;
     QWidget * profile;
+    QWidget * history;
     QTabWidget *tabWidget;
+
+    //Everything related to the profile section
+
+    QLabel *usernameDisplay;
+    QLabel *ppDisplay;
+    QLabel *fnameDisplay;
+    QLabel *lnameDisplay;
+    QLabel *dobDisplay;
+    QLabel *genderDisplay;
+
 
 signals:
 
 public slots:
+void readFromJsonProfile();
 
 
 
