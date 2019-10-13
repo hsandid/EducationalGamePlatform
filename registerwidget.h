@@ -53,6 +53,7 @@ signals:
 
 public slots:
 void selectPicture();
+void cancelRegistration();
 void confirmRegistration();
 void checkConditions();
 bool passCheck();

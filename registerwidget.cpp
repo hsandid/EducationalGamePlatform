@@ -121,8 +121,18 @@ registerWidget::registerWidget(QWidget *parent) :
 
     QObject::connect(add_pppicture,SIGNAL(clicked()),this,SLOT(selectPicture()));
     QObject::connect(confirm,SIGNAL(clicked()),this,SLOT(checkConditions()));
+    QObject::connect(cancel,SIGNAL(clicked()),this,SLOT(cancelRegistration()));
 
 
+
+}
+
+void registerWidget::cancelRegistration()
+{
+    loginWidget *login = new loginWidget();
+    login->show();
+    this->close();
+    delete this;
 
 }
 
