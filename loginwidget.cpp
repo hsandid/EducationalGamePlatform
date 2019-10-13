@@ -25,7 +25,7 @@ loginWidget::loginWidget(QWidget *parent) :
     test_layout->addWidget(UserNameLine,3,1,1,2);
     test_layout->addWidget(PassWord,4,0);
     test_layout->addWidget(PassWordLine,4,1,1,2);
-    test_layout->addWidget(ErrorMessage,5,0,1,2,Qt::AlignCenter);
+    test_layout->addWidget(ErrorMessage,5,0,1,3,Qt::AlignCenter);
     test_layout->addWidget(RegisterButton,6,0,1,1);
     test_layout->addWidget(LogINbutton,6,1,1,1);
     test_layout->addWidget(PlayAsGuestButton,6,2,1,1);
