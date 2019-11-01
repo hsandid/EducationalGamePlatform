@@ -2,6 +2,7 @@
 #define GAMESCENE_1_H
 
 #include "gamescene_1_player.h"
+#include "gamescene_1_dice.h"
 #include <QGraphicsScene>
 
 class gameScene_1 : public QGraphicsScene
@@ -16,12 +17,17 @@ public:
     //Player 1 item
     gameScene_1_player *player1;
 
+    //dice item
+    gamescene_1_dice *dice1;
+    QTimer * timer;
+
 
 
 
 signals:
 
 public slots:
+    void initDice();
 
 };
 

@@ -1,7 +1,13 @@
 <RCC>
-    <qresource>
-    <file>images/default-board.jpg</file>
-    <file>images/player1.png</file>
-    <file>images/player2.png</file>
+    <qresource prefix="/">
+        <file>images/default-board.jpg</file>
+        <file>images/player1.png</file>
+        <file>images/player2.png</file>
+        <file>images/dice-five.png</file>
+        <file>images/dice-four.png</file>
+        <file>images/dice-one.png</file>
+        <file>images/dice-six.png</file>
+        <file>images/dice-three.png</file>
+        <file>images/dice-two.png</file>
     </qresource>
 </RCC>
