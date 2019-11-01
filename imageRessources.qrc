@@ -1,0 +1,7 @@
+<RCC>
+    <qresource>
+    <file>images/default-board.jpg</file>
+    <file>images/player1.png</file>
+    <file>images/player2.png</file>
+    </qresource>
+</RCC>
