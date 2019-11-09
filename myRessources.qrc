@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>images/symbol.png</file>
-        <file>images/cabo.png</file>
-        <file>images/snl.png</file>
-    </qresource>
-</RCC>
