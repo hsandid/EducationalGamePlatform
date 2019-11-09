@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/symbol.png</file>
+        <file>images/cabo.png</file>
+        <file>images/snl.png</file>
+	<file>images/default-board.jpg</file>
+        <file>images/player1.png</file>
+        <file>images/player2.png</file>
+        <file>images/snakes/snakes1.png</file>
+        <file>images/snakes/snakes2.png</file>
+        <file>images/snakes/snakes3.png</file>
+        <file>images/ladders/ladder1.png</file>
+        <file>images/ladders/ladder2.png</file>
+        <file>sound_effects/diceroll.wav</file>
+        <file>sound_effects/ladder.wav</file>
+        <file>sound_effects/snake.wav</file>
+        <file>sound_effects/wingame.wav</file>
+        <file>sound_effects/playermove.wav</file>
+        <file>images/dice-five.png</file>
+        <file>images/dice-four.png</file>
+        <file>images/dice-one.png</file>
+        <file>images/dice-six.png</file>
+        <file>images/dice-three.png</file>
+        <file>images/dice-two.png</file>
+        <file>json/boarddata.json</file>
+        <file>images/game-logo.PNG</file>
+    </qresource>
+</RCC>
