@@ -1,10 +1,16 @@
 #include "gamescene_1.h"
 #include "menuwidget.h"
+<<<<<<< HEAD
+#include "game_scene_1_winpopup.h"
+=======
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 #include <stdlib.h>
 #include <time.h>
 
 
 
+<<<<<<< HEAD
+=======
 /**
  * \file gameScene_1.cpp
  * \brief Contains gameScene_1 class definition
@@ -12,6 +18,7 @@
  * Main game scene for Game 1. It is the container for all
  * visual elements and logic for Game 1.
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 
 gameScene_1::gameScene_1(QObject *parent) :
     QGraphicsScene(parent)
@@ -104,6 +111,8 @@ gameScene_1::gameScene_1(QObject *parent) :
 
 }
 
+<<<<<<< HEAD
+=======
 
 /**
  * @brief gameScene_1::loadGame
@@ -113,6 +122,7 @@ gameScene_1::gameScene_1(QObject *parent) :
  *
  * Loads existing game, if there is any
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::loadGame(int posp1,int posp2, bool turn)
 {
     *firstRoll=true;
@@ -142,11 +152,14 @@ void gameScene_1::loadGame(int posp1,int posp2, bool turn)
 
 }
 
+<<<<<<< HEAD
+=======
 /**
  * @brief gameScene_1::backToMenu
  *
  * Go back to main menu
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::backToMenu()
 {
 //check wincondition
@@ -243,11 +256,14 @@ void gameScene_1::backToMenu()
 
 }
 
+<<<<<<< HEAD
+=======
 /**
  * @brief gameScene_1::movePlayer
  *
  * Move player after a dice roll
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::movePlayer()
 {
     *player1->newPosition =   *player1->position + *dice1->diceVal;
@@ -288,11 +304,14 @@ void gameScene_1::movePlayer()
 
 }
 
+<<<<<<< HEAD
+=======
 /**
  * @brief gameScene_1::movePlayerOpp
  *
  * Move player after a dice roll
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::movePlayerOpp()
 {
     *player1->newPosition =   *player1->position + *dice2->diceVal;
@@ -333,11 +352,14 @@ void gameScene_1::movePlayerOpp()
 
 }
 
+<<<<<<< HEAD
+=======
 /**
  * @brief gameScene_1::diceRoll
  *
  * Roll dice & implements game loop
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::diceRoll()
 {
     QSound::play(":/sound_effects/diceroll.wav");
@@ -440,11 +462,14 @@ void gameScene_1::diceRoll()
 
 }
 
+<<<<<<< HEAD
+=======
 /**
  * @brief gameScene_1::winCondition
  *
  * Check if the win condition ( player reaches case 100) is satisfied
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::winCondition()
 {
 
@@ -470,11 +495,15 @@ void gameScene_1::winCondition()
 
 }
 
+<<<<<<< HEAD
+
+=======
 /**
  * @brief gameScene_1::selectLeft
  *
  * This function is executed when the player selects the left dice
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::selectLeft()
 {
     pickdice1->setEnabled(false);
@@ -517,11 +546,15 @@ void gameScene_1::selectLeft()
 
 
 }
+<<<<<<< HEAD
+
+=======
 /**
  * @brief gameScene_1::selectRight
  *
  * This function is executed when the player selects the right dice
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::selectRight()
 {
     pickdice1->setEnabled(false);
@@ -563,11 +596,14 @@ void gameScene_1::selectRight()
       }
 }
 
+<<<<<<< HEAD
+=======
 /**
  * @brief gameScene_1::generateBoard
  *
  * Generate board dynamically ( add snakes/ladders) from a text file
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 void gameScene_1::generateBoard()
 {
 

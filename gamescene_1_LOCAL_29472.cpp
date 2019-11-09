@@ -1,17 +1,11 @@
 #include "gamescene_1.h"
 #include "menuwidget.h"
+#include "game_scene_1_winpopup.h"
 #include <stdlib.h>
 #include <time.h>
 
 
 
-/**
- * \file gameScene_1.cpp
- * \brief Contains gameScene_1 class definition
- *
- * Main game scene for Game 1. It is the container for all
- * visual elements and logic for Game 1.
- */
 
 gameScene_1::gameScene_1(QObject *parent) :
     QGraphicsScene(parent)
@@ -104,15 +98,6 @@ gameScene_1::gameScene_1(QObject *parent) :
 
 }
 
-
-/**
- * @brief gameScene_1::loadGame
- * @param posp1 : player1 position
- * @param posp2 : player2 position
- * @param turn : bool which denotes which player's turn it is
- *
- * Loads existing game, if there is any
- */
 void gameScene_1::loadGame(int posp1,int posp2, bool turn)
 {
     *firstRoll=true;
@@ -142,11 +127,6 @@ void gameScene_1::loadGame(int posp1,int posp2, bool turn)
 
 }
 
-/**
- * @brief gameScene_1::backToMenu
- *
- * Go back to main menu
- */
 void gameScene_1::backToMenu()
 {
 //check wincondition
@@ -243,11 +223,6 @@ void gameScene_1::backToMenu()
 
 }
 
-/**
- * @brief gameScene_1::movePlayer
- *
- * Move player after a dice roll
- */
 void gameScene_1::movePlayer()
 {
     *player1->newPosition =   *player1->position + *dice1->diceVal;
@@ -288,11 +263,6 @@ void gameScene_1::movePlayer()
 
 }
 
-/**
- * @brief gameScene_1::movePlayerOpp
- *
- * Move player after a dice roll
- */
 void gameScene_1::movePlayerOpp()
 {
     *player1->newPosition =   *player1->position + *dice2->diceVal;
@@ -333,11 +303,6 @@ void gameScene_1::movePlayerOpp()
 
 }
 
-/**
- * @brief gameScene_1::diceRoll
- *
- * Roll dice & implements game loop
- */
 void gameScene_1::diceRoll()
 {
     QSound::play(":/sound_effects/diceroll.wav");
@@ -440,11 +405,6 @@ void gameScene_1::diceRoll()
 
 }
 
-/**
- * @brief gameScene_1::winCondition
- *
- * Check if the win condition ( player reaches case 100) is satisfied
- */
 void gameScene_1::winCondition()
 {
 
@@ -470,11 +430,7 @@ void gameScene_1::winCondition()
 
 }
 
-/**
- * @brief gameScene_1::selectLeft
- *
- * This function is executed when the player selects the left dice
- */
+
 void gameScene_1::selectLeft()
 {
     pickdice1->setEnabled(false);
@@ -517,11 +473,7 @@ void gameScene_1::selectLeft()
 
 
 }
-/**
- * @brief gameScene_1::selectRight
- *
- * This function is executed when the player selects the right dice
- */
+
 void gameScene_1::selectRight()
 {
     pickdice1->setEnabled(false);
@@ -563,11 +515,6 @@ void gameScene_1::selectRight()
       }
 }
 
-/**
- * @brief gameScene_1::generateBoard
- *
- * Generate board dynamically ( add snakes/ladders) from a text file
- */
 void gameScene_1::generateBoard()
 {
 

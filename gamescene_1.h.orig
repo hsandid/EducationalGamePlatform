@@ -14,11 +14,14 @@
 #include <stdlib.h>
 #include <time.h>
 
+<<<<<<< HEAD
+=======
 /**
  *
  * \file gamescene_1.h
  * \brief The gameScene_1 class
  */
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 
 class gameScene_1 : public QGraphicsScene
 {
@@ -27,6 +30,41 @@ public:
     explicit gameScene_1(QObject *parent = 0);
 
     //Sidebar
+<<<<<<< HEAD
+     QGraphicsTextItem *text;
+     QGraphicsTextItem *text2;
+     QGraphicsTextItem *text3;
+     QPushButton *rolldice;
+     QPushButton *pickdice1;
+     QPushButton *pickdice2;
+     QPushButton *backtomenu;
+
+
+    //Players item
+    gameScene_1_player *player1;
+    gameScene_1_player *player2;
+
+    //Dice item
+    gameScene_1_dice *dice1;
+    gameScene_1_dice *dice2;
+
+    //LadderSnake Gen + Brush
+    gamescene_1_ladderSnake *ladderSnake;
+    QGraphicsRectItem* square;
+
+    //LadderSnake positions
+    int *ladderPos;
+    int *snakePos;
+
+    //Logic items
+    bool *firstRoll;
+    bool *playerTurn;
+    bool *sidePick;
+    bool *winState;
+
+    //CPU or Human Player
+    bool *CPU;
+=======
      QGraphicsTextItem *text; //!< Text element in GUI
      QGraphicsTextItem *text2; //!< Text element in GUI
      QGraphicsTextItem *text3; //!< Text element in GUI
@@ -60,6 +98,7 @@ public:
 
     //CPU or Human Player
     bool *CPU; //!< Bool denoting CPU adversary / human adversary
+>>>>>>> fdb88695d22ad1effa83785502613fbe8d994b2b
 
 
 
