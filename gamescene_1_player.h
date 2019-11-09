@@ -5,6 +5,15 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QTimer>
+#include <QSound>
+#include <QThread>
+
+/**
+ *
+ * \file gameScene_1_player.h
+ * \brief The gameScene_1_player class
+ */
+
 
 class gameScene_1_player : public QObject , public QGraphicsPixmapItem
 {
@@ -12,13 +21,16 @@ class gameScene_1_player : public QObject , public QGraphicsPixmapItem
 public:
     explicit gameScene_1_player(QObject *parent = 0);
     QGraphicsScene * parentScene;
-    QTimer * timer;
-    bool *goForward;
+    bool *goForward; //!< Bool used in movement logic
+    int *id; //!< ID used for player1/player2
+    int *position; //!< Used to store player position
+    int *newPosition; //!< Used to store player position
 
 signals:
 
 public slots:
-void update();
+void moveInstantaneous();
+void setup(int playerid);
 
 };
 

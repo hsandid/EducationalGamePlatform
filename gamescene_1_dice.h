@@ -1,23 +1,32 @@
 #ifndef GAMESCENE_1_DICE_H
 #define GAMESCENE_1_DICE_H
+
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QTimer>
-#include <qthread.h>
-#include<time.h>
-#include<stdlib.h>
-class gamescene_1_dice : public QObject , public QGraphicsPixmapItem
+#include <stdlib.h>
+#include <time.h>
+
+/**
+ *
+ * \file gamescene_1_dice.h
+ * \brief The gameScene_1_dice class
+ */
+
+class gameScene_1_dice : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    explicit gamescene_1_dice(QObject *parent = 0);
-    QTimer * timer;
+    explicit gameScene_1_dice(QObject *parent = 0);
+    int *id; //!< ID of the dice ( dice1/dice2)
+    int *diceVal; //!< int denoting current value of dice
+
+signals:
 
 public slots:
-   // void update();
-    void init(int value);
-    void destroy();
+    void update();
+    void setup(int value);
 };
 
 #endif // GAMESCENE_1_DICE_H
