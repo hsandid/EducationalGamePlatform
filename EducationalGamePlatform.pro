@@ -31,5 +31,5 @@ HEADERS += \
     cpu.h
 
 RESOURCES += \
-    myRessources.qrc
+    GamesResources.qrc
 
