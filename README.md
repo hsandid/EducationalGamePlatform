@@ -2,7 +2,7 @@
 
 Realized by Mehieddine Zeidan and Hadi Sandid during Fall 2020 for the course EECE 435L (Software Tools).
 
-This Education Game Platform is written in C++ and uses the QT framework. It offers a registration/login system, and two separate games (Snakes and Ladders & Cabo).
+This Education Game Platform is written in C++ and uses the QT framework. It offers a registration/login system, and two separate games (Snakes and Ladders & Cabo) with various features.
 
 
 ## Documentation
