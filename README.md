@@ -7,7 +7,7 @@ This Education Game Platform is written in C++ and uses the QT framework. It off
 
 ## Documentation
 
-Doxygen has been used to generate documentation for our code in HTML format. It can be found [here](https://hsandid.github.io/EducationalGameSystem).
+Doxygen has been used to generate documentation for our code in HTML format. It can be found [here](https://hsandid.github.io/EducationalGamePlatform).
 
 If you'd like to generate the documentation yourself, a Doxyfile is included in the root folder for the project.
 
