@@ -4,6 +4,7 @@ Realized by Mehieddine Zeidan and Hadi Sandid during Fall 2020 for the course EE
 
 This Education Game Platform is written in C++ and uses the QT framework. It offers a registration/login system, and two separate games (Snakes and Ladders & Cabo) with various features.
 
+All assets (i.e. images, sound bytes...) used in this project are under the Creative Commons license.
 
 ## Documentation
 
